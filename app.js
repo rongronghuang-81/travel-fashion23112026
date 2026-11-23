@@ -32,6 +32,7 @@
     if (saved && saved.trip && Array.isArray(saved.items)) {
       state = Object.assign(defaults(), saved);
       state.trip = Object.assign(defaults().trip, saved.trip);
+      if (state.trip.gender !== 'women' && state.trip.gender !== 'men') state.trip.gender = 'women';
     }
   } catch (e) { /* ignore corrupt storage */ }
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage full/blocked */ } };

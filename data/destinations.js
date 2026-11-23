@@ -9,10 +9,10 @@
  * modest : 'full' (shoulders+knees covered in public) | 'sites' (only at temples/churches/mosques)
  * drop   : base item names that locals rarely wear (removed from suggestions)
  * local  : extra items locals wear. L(name, category, minBand, maxBand, genders, why, qty)
- *          genders: any of f (women) m (men) n (non-binary / neutral)
+ *          genders: any of f (women) m (men)
  */
 (function (root) {
-  const L = (item, cat, b0, b1, g, why, qty) => ({ item, cat, b: [b0, b1], g: g || 'fmn', why, qty: qty || 1 });
+  const L = (item, cat, b0, b1, g, why, qty) => ({ item, cat, b: [b0, b1], g: g || 'fm', why, qty: qty || 1 });
   const ALL = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const D = {
@@ -22,10 +22,10 @@
       palette: 'Black, navy, grey, beige, olive',
       avoid: 'Loud logos, very revealing tops, gym wear outside the gym',
       local: [
-        L('Trench coat or lightweight mac', 'Outerwear', 1, 2, 'fmn', 'Locals wear trench-style coats in spring and autumn'),
-        L('Wide-leg or tapered trousers', 'Bottoms', 1, 3, 'fmn', 'Roomy, tapered cuts are everywhere in Tokyo'),
-        L('Slip-on shoes', 'Footwear', 0, 4, 'fmn', 'You remove shoes at temples, ryokan and many restaurants'),
-        L('Small hand towel', 'Accessories', 3, 4, 'fmn', 'Locals carry a hand towel to deal with humid summers')
+        L('Trench coat or lightweight mac', 'Outerwear', 1, 2, 'fm', 'Locals wear trench-style coats in spring and autumn'),
+        L('Wide-leg or tapered trousers', 'Bottoms', 1, 3, 'fm', 'Roomy, tapered cuts are everywhere in Tokyo'),
+        L('Slip-on shoes', 'Footwear', 0, 4, 'fm', 'You remove shoes at temples, ryokan and many restaurants'),
+        L('Small hand towel', 'Accessories', 3, 4, 'fm', 'Locals carry a hand towel to deal with humid summers')
       ]
     },
     'South Korea': {
@@ -35,11 +35,11 @@
       avoid: 'Beachwear in the city, mismatched athletic gear',
       drop: ['Heavy winter coat'],
       local: [
-        L('Long padded puffer coat', 'Outerwear', 0, 0, 'fmn', 'Knee-length puffers are the Seoul winter uniform'),
-        L('Oversized knit or cardigan', 'Tops', 0, 2, 'fmn', 'Oversized knits are a staple'),
-        L('Clean white sneakers', 'Footwear', 1, 4, 'fmn', 'White sneakers go with almost every Seoul outfit'),
-        L('Straight-cut or wide-leg jeans', 'Bottoms', 1, 3, 'fmn', 'Relaxed cuts have replaced skinny jeans'),
-        L('Cap or bucket hat', 'Accessories', 3, 4, 'fmn', 'Popular for sun and style in summer')
+        L('Long padded puffer coat', 'Outerwear', 0, 0, 'fm', 'Knee-length puffers are the Seoul winter uniform'),
+        L('Oversized knit or cardigan', 'Tops', 0, 2, 'fm', 'Oversized knits are a staple'),
+        L('Clean white sneakers', 'Footwear', 1, 4, 'fm', 'White sneakers go with almost every Seoul outfit'),
+        L('Straight-cut or wide-leg jeans', 'Bottoms', 1, 3, 'fm', 'Relaxed cuts have replaced skinny jeans'),
+        L('Cap or bucket hat', 'Accessories', 3, 4, 'fm', 'Popular for sun and style in summer')
       ]
     },
     'China': {
@@ -49,9 +49,9 @@
       avoid: 'Very revealing outfits',
       drop: ['Heavy winter coat'],
       local: [
-        L('Long down jacket', 'Outerwear', 0, 0, 'fmn', 'Long down coats are standard in northern winters'),
-        L('UV-protective light layer', 'Outerwear', 3, 4, 'fmn', 'Locals cover arms against the sun'),
-        L('Face masks', 'Accessories', 0, 1, 'fmn', 'Common on polluted or cold, dry days')
+        L('Long down jacket', 'Outerwear', 0, 0, 'fm', 'Long down coats are standard in northern winters'),
+        L('UV-protective light layer', 'Outerwear', 3, 4, 'fm', 'Locals cover arms against the sun'),
+        L('Face masks', 'Accessories', 0, 1, 'fm', 'Common on polluted or cold, dry days')
       ]
     },
     'Thailand': {
@@ -60,9 +60,9 @@
       palette: 'White, pastels, bright cotton prints',
       avoid: 'Swimwear or bare torsos away from the beach; tank tops and shorts inside temples',
       local: [
-        L('Loose lightweight cotton trousers', 'Bottoms', 3, 4, 'fmn', 'Airy trousers are what locals wear in the heat'),
-        L('Slip-on sandals', 'Footwear', 3, 4, 'fmn', 'Shoes come off at temples, homes and shops'),
-        L('Compact poncho or umbrella', 'Accessories', 3, 4, 'fmn', 'Rainy-season downpours are sudden', 1)
+        L('Loose lightweight cotton trousers', 'Bottoms', 3, 4, 'fm', 'Airy trousers are what locals wear in the heat'),
+        L('Slip-on sandals', 'Footwear', 3, 4, 'fm', 'Shoes come off at temples, homes and shops'),
+        L('Compact poncho or umbrella', 'Accessories', 3, 4, 'fm', 'Rainy-season downpours are sudden', 1)
       ]
     },
     'Vietnam': {
@@ -71,10 +71,10 @@
       palette: 'Light neutrals, soft colours',
       avoid: 'Beachwear in the city, sleeveless tops in pagodas',
       local: [
-        L('Lightweight sun-protection jacket', 'Outerwear', 3, 4, 'fmn', 'Locals wear thin long-sleeve jackets against sun and dust'),
-        L('Face mask or neck buff', 'Accessories', 2, 4, 'fmn', 'Used on bikes and in traffic'),
-        L('Light cotton long trousers', 'Bottoms', 2, 4, 'fmn', 'Preferred over shorts in cities'),
-        L('Compact poncho', 'Outerwear', 2, 4, 'fmn', 'Ponchos are the local rain solution')
+        L('Lightweight sun-protection jacket', 'Outerwear', 3, 4, 'fm', 'Locals wear thin long-sleeve jackets against sun and dust'),
+        L('Face mask or neck buff', 'Accessories', 2, 4, 'fm', 'Used on bikes and in traffic'),
+        L('Light cotton long trousers', 'Bottoms', 2, 4, 'fm', 'Preferred over shorts in cities'),
+        L('Compact poncho', 'Outerwear', 2, 4, 'fm', 'Ponchos are the local rain solution')
       ]
     },
     'Singapore': {
@@ -83,9 +83,9 @@
       palette: 'Light, bright cotton, pastels',
       avoid: 'Heavy fabrics and jeans at midday',
       local: [
-        L('Thin layer for air-conditioning', 'Outerwear', 3, 4, 'fmn', 'Malls, trains and offices are very cold'),
-        L('Quick-dry breathable tops', 'Tops', 3, 4, 'fmn', 'Humidity makes quick-dry fabrics ideal', 3),
-        L('Compact umbrella', 'Accessories', 3, 4, 'fmn', 'Used for both sun and sudden rain')
+        L('Thin layer for air-conditioning', 'Outerwear', 3, 4, 'fm', 'Malls, trains and offices are very cold'),
+        L('Quick-dry breathable tops', 'Tops', 3, 4, 'fm', 'Humidity makes quick-dry fabrics ideal', 3),
+        L('Compact umbrella', 'Accessories', 3, 4, 'fm', 'Used for both sun and sudden rain')
       ]
     },
     'India': {
@@ -94,11 +94,11 @@
       palette: 'Jewel tones, florals, block prints',
       avoid: 'Shorts, short skirts, sleeveless or low-cut tops',
       local: [
-        L('Long cotton kurta or tunic', 'Tops', 2, 4, 'fmn', 'The everyday local top: cool, loose and modest'),
-        L('Dupatta or large scarf', 'Accessories', 1, 4, 'fn', 'Worn over the shoulders; useful at temples'),
-        L('Loose cotton trousers', 'Bottoms', 2, 4, 'fmn', 'Locals choose loose over fitted in the heat'),
-        L('Wool shawl or warm wrap', 'Outerwear', 0, 1, 'fmn', 'Delhi winters are chilly morning and night'),
-        L('Easy slip-on shoes', 'Footwear', 1, 4, 'fmn', 'Shoes come off at temples and homes')
+        L('Long cotton kurta or tunic', 'Tops', 2, 4, 'fm', 'The everyday local top: cool, loose and modest'),
+        L('Dupatta or large scarf', 'Accessories', 1, 4, 'f', 'Worn over the shoulders; useful at temples'),
+        L('Loose cotton trousers', 'Bottoms', 2, 4, 'fm', 'Locals choose loose over fitted in the heat'),
+        L('Wool shawl or warm wrap', 'Outerwear', 0, 1, 'fm', 'Delhi winters are chilly morning and night'),
+        L('Easy slip-on shoes', 'Footwear', 1, 4, 'fm', 'Shoes come off at temples and homes')
       ]
     },
     'United Arab Emirates': {
@@ -107,10 +107,10 @@
       palette: 'White, black, neutrals, sand tones',
       avoid: 'Revealing clothing in public spaces; swimwear anywhere except pools and beaches',
       local: [
-        L('Light scarf or wrap', 'Accessories', 2, 4, 'fn', 'Shoulders covered in malls, plus cold air-conditioning'),
+        L('Light scarf or wrap', 'Accessories', 2, 4, 'f', 'Shoulders covered in malls, plus cold air-conditioning'),
         L('Maxi dress or loose long skirt', 'Bottoms', 3, 4, 'f', 'Long, flowing and cool'),
         L('Smart casual shirt', 'Tops', 3, 4, 'm', 'Collared shirts are the everyday smart-casual look'),
-        L('Thin layer for air-conditioning', 'Outerwear', 3, 4, 'fmn', 'Interiors are very cold')
+        L('Thin layer for air-conditioning', 'Outerwear', 3, 4, 'fm', 'Interiors are very cold')
       ]
     },
     'Turkey': {
@@ -119,9 +119,9 @@
       palette: 'Earth tones, navy, black, white',
       avoid: 'Beachwear away from the coast, bare shoulders in mosques',
       local: [
-        L('Light scarf', 'Accessories', 1, 4, 'fn', 'For mosques and cool evenings'),
-        L('Stylish leather jacket or blazer', 'Outerwear', 1, 2, 'fmn', 'Istanbulites dress up their layers'),
-        L('Fashionable clean sneakers', 'Footwear', 1, 4, 'fmn', 'Smart sneakers work all day and evening')
+        L('Light scarf', 'Accessories', 1, 4, 'f', 'For mosques and cool evenings'),
+        L('Stylish leather jacket or blazer', 'Outerwear', 1, 2, 'fm', 'Istanbulites dress up their layers'),
+        L('Fashionable clean sneakers', 'Footwear', 1, 4, 'fm', 'Smart sneakers work all day and evening')
       ]
     },
     'Egypt': {
@@ -130,9 +130,9 @@
       palette: 'Light neutrals, white, soft earth tones',
       avoid: 'Shorts, mini skirts, sleeveless tops outside resorts',
       local: [
-        L('Loose linen or cotton long trousers', 'Bottoms', 2, 4, 'fmn', 'The most common cool, covered option'),
-        L('Large scarf', 'Accessories', 1, 4, 'fmn', 'Sun, dust and mosques'),
-        L('Closed comfortable shoes for ruins', 'Footwear', 2, 4, 'fmn', 'Sand and uneven ground at sites'),
+        L('Loose linen or cotton long trousers', 'Bottoms', 2, 4, 'fm', 'The most common cool, covered option'),
+        L('Large scarf', 'Accessories', 1, 4, 'fm', 'Sun, dust and mosques'),
+        L('Closed comfortable shoes for ruins', 'Footwear', 2, 4, 'fm', 'Sand and uneven ground at sites'),
         L('Long dress or maxi skirt', 'Bottoms', 3, 4, 'f', 'Modest and cool')
       ]
     },
@@ -142,10 +142,10 @@
       palette: 'Terracotta, indigo, white, earth tones',
       avoid: 'Shorts, tight or sleeveless tops, especially in medinas',
       local: [
-        L('Light scarf or shawl', 'Accessories', 1, 4, 'fn', 'Sun, dust, and a quick cover-up'),
+        L('Light scarf or shawl', 'Accessories', 1, 4, 'f', 'Sun, dust, and a quick cover-up'),
         L('Long loose dress or skirt', 'Bottoms', 2, 4, 'f', 'Common among local women'),
-        L('Warm layer for evenings and desert', 'Outerwear', 1, 4, 'fmn', 'Temperatures drop fast after dark'),
-        L('Comfortable slip-on shoes', 'Footwear', 1, 4, 'fmn', 'For cobbled medinas and shoes-off riads')
+        L('Warm layer for evenings and desert', 'Outerwear', 1, 4, 'fm', 'Temperatures drop fast after dark'),
+        L('Comfortable slip-on shoes', 'Footwear', 1, 4, 'fm', 'For cobbled medinas and shoes-off riads')
       ]
     },
     'South Africa': {
@@ -154,9 +154,9 @@
       palette: 'Earth tones, khaki, olive, denim; brighter colours in summer',
       avoid: 'Bright colours, white and dark blue on safari',
       local: [
-        L('Khaki or olive safari layers', 'Tops', 2, 4, 'fmn', 'Neutral colours work best on safari', 2),
-        L('Fleece or light puffer for mornings', 'Outerwear', 1, 2, 'fmn', 'Cool starts, warm middays'),
-        L('Smart casual outfit for dining', 'Basics', 1, 4, 'fmn', 'Restaurants are smart casual')
+        L('Khaki or olive safari layers', 'Tops', 2, 4, 'fm', 'Neutral colours work best on safari', 2),
+        L('Fleece or light puffer for mornings', 'Outerwear', 1, 2, 'fm', 'Cool starts, warm middays'),
+        L('Smart casual outfit for dining', 'Basics', 1, 4, 'fm', 'Restaurants are smart casual')
       ]
     },
     'United Kingdom': {
@@ -165,9 +165,9 @@
       palette: 'Navy, grey, black, olive, denim',
       avoid: 'Shorts and flip-flops in the city outside heatwaves; bright tourist logos',
       local: [
-        L('Waterproof jacket with hood', 'Outerwear', 0, 4, 'fmn', 'Local rain uniform: hood beats umbrella'),
-        L('Smart trainers or ankle boots', 'Footwear', 0, 4, 'fmn', 'Smart trainers go from daytime to the pub'),
-        L('Knitwear layer', 'Tops', 0, 2, 'fmn', 'Layering is the answer to four seasons in a day')
+        L('Waterproof jacket with hood', 'Outerwear', 0, 4, 'fm', 'Local rain uniform: hood beats umbrella'),
+        L('Smart trainers or ankle boots', 'Footwear', 0, 4, 'fm', 'Smart trainers go from daytime to the pub'),
+        L('Knitwear layer', 'Tops', 0, 2, 'fm', 'Layering is the answer to four seasons in a day')
       ]
     },
     'France': {
@@ -176,10 +176,10 @@
       palette: 'Navy, white, camel, black, stripes',
       avoid: 'Shorts, gym wear and flip-flops in the city; big logos',
       local: [
-        L('Breton striped top', 'Tops', 1, 3, 'fmn', 'The classic French casual top'),
-        L('Classic trench or wool coat', 'Outerwear', 1, 2, 'fmn', 'Parisian staple'),
-        L('Scarf', 'Accessories', 0, 2, 'fmn', 'Scarves finish nearly every Paris outfit'),
-        L('Clean leather sneakers or loafers', 'Footwear', 1, 4, 'fmn', 'Smart-casual shoes that handle walking')
+        L('Breton striped top', 'Tops', 1, 3, 'fm', 'The classic French casual top'),
+        L('Classic trench or wool coat', 'Outerwear', 1, 2, 'fm', 'Parisian staple'),
+        L('Scarf', 'Accessories', 0, 2, 'fm', 'Scarves finish nearly every Paris outfit'),
+        L('Clean leather sneakers or loafers', 'Footwear', 1, 4, 'fm', 'Smart-casual shoes that handle walking')
       ]
     },
     'Italy': {
@@ -188,10 +188,10 @@
       palette: 'Earth tones, navy, cream, linen',
       avoid: 'Gym wear, flip-flops and beachwear in cities; bare shoulders in churches',
       local: [
-        L('Tailored trousers or chinos', 'Bottoms', 1, 4, 'fmn', 'Italians favour fitted, ironed trousers over shorts'),
-        L('Loafers or leather sneakers', 'Footwear', 1, 4, 'fmn', 'Smart footwear is a point of pride'),
-        L('Light scarf for churches', 'Accessories', 2, 4, 'fn', 'Cover shoulders at churches'),
-        L('Good sunglasses', 'Accessories', 2, 4, 'fmn', 'Almost everyone wears them')
+        L('Tailored trousers or chinos', 'Bottoms', 1, 4, 'fm', 'Italians favour fitted, ironed trousers over shorts'),
+        L('Loafers or leather sneakers', 'Footwear', 1, 4, 'fm', 'Smart footwear is a point of pride'),
+        L('Light scarf for churches', 'Accessories', 2, 4, 'f', 'Cover shoulders at churches'),
+        L('Good sunglasses', 'Accessories', 2, 4, 'fm', 'Almost everyone wears them')
       ]
     },
     'Spain': {
@@ -200,9 +200,9 @@
       palette: 'Light linen, white, earth tones, black',
       avoid: 'Beachwear in towns; bare shoulders in churches',
       local: [
-        L('Espadrilles or leather sandals', 'Footwear', 3, 4, 'fmn', 'Typical Spanish summer shoes'),
-        L('Light scarf', 'Accessories', 1, 4, 'fn', 'Cool evenings, and churches'),
-        L('Linen trousers', 'Bottoms', 3, 4, 'fmn', 'Light and elegant for hot days')
+        L('Espadrilles or leather sandals', 'Footwear', 3, 4, 'fm', 'Typical Spanish summer shoes'),
+        L('Light scarf', 'Accessories', 1, 4, 'f', 'Cool evenings, and churches'),
+        L('Linen trousers', 'Bottoms', 3, 4, 'fm', 'Light and elegant for hot days')
       ]
     },
     'Germany': {
@@ -211,9 +211,9 @@
       palette: 'Black, grey, navy, olive',
       avoid: 'Overly formal outfits for sightseeing',
       local: [
-        L('Functional waterproof jacket', 'Outerwear', 0, 3, 'fmn', 'Outdoor-brand shells are everyday wear'),
-        L('Sturdy comfortable shoes', 'Footwear', 0, 3, 'fmn', 'Locals walk and cycle a lot'),
-        L('Wool or fleece mid-layer', 'Tops', 0, 2, 'fmn', 'Layering is standard')
+        L('Functional waterproof jacket', 'Outerwear', 0, 3, 'fm', 'Outdoor-brand shells are everyday wear'),
+        L('Sturdy comfortable shoes', 'Footwear', 0, 3, 'fm', 'Locals walk and cycle a lot'),
+        L('Wool or fleece mid-layer', 'Tops', 0, 2, 'fm', 'Layering is standard')
       ]
     },
     'Netherlands': {
@@ -222,9 +222,9 @@
       palette: 'Dark tones, denim, neutrals',
       avoid: 'Fragile shoes for cobbles and bikes',
       local: [
-        L('Wind and waterproof jacket', 'Outerwear', 0, 3, 'fmn', 'Essential for cycling in all weathers'),
-        L('Sturdy sneakers', 'Footwear', 0, 4, 'fmn', 'Cobbles and bike pedals'),
-        L('Warm scarf', 'Accessories', 0, 1, 'fmn', 'Wind off the North Sea')
+        L('Wind and waterproof jacket', 'Outerwear', 0, 3, 'fm', 'Essential for cycling in all weathers'),
+        L('Sturdy sneakers', 'Footwear', 0, 4, 'fm', 'Cobbles and bike pedals'),
+        L('Warm scarf', 'Accessories', 0, 1, 'fm', 'Wind off the North Sea')
       ]
     },
     'Sweden': {
@@ -233,9 +233,9 @@
       palette: 'Black, grey, beige, white, muted tones',
       avoid: 'Showy logos, thin clothing for winter',
       local: [
-        L('Merino wool base layer', 'Basics', 0, 1, 'fmn', 'Merino is the Swedish winter foundation', 2),
-        L('Down jacket', 'Outerwear', 0, 0, 'fmn', 'Locals choose down for deep cold'),
-        L('Easy slip-on shoes', 'Footwear', 0, 4, 'fmn', 'Shoes come off indoors')
+        L('Merino wool base layer', 'Basics', 0, 1, 'fm', 'Merino is the Swedish winter foundation', 2),
+        L('Down jacket', 'Outerwear', 0, 0, 'fm', 'Locals choose down for deep cold'),
+        L('Easy slip-on shoes', 'Footwear', 0, 4, 'fm', 'Shoes come off indoors')
       ]
     },
     'Iceland': {
@@ -244,11 +244,11 @@
       palette: 'Practical outdoor colours; black, navy, grey, wool tones',
       avoid: 'Jeans on hikes, cotton layers that stay wet',
       local: [
-        L('Lopapeysa-style wool sweater', 'Tops', 0, 2, 'fmn', 'The traditional Icelandic wool sweater'),
-        L('Waterproof shell jacket and trousers', 'Outerwear', 0, 2, 'fmn', 'Wind and rain are constant'),
-        L('Insulated parka', 'Outerwear', 0, 0, 'fmn', 'Cold, windy winters'),
-        L('Waterproof hiking boots', 'Footwear', 0, 2, 'fmn', 'Locals hike in all seasons'),
-        L('Swimwear (geothermal pools)', 'Basics', 0, 4, 'fmn', 'Pool culture is a daily thing')
+        L('Lopapeysa-style wool sweater', 'Tops', 0, 2, 'fm', 'The traditional Icelandic wool sweater'),
+        L('Waterproof shell jacket and trousers', 'Outerwear', 0, 2, 'fm', 'Wind and rain are constant'),
+        L('Insulated parka', 'Outerwear', 0, 0, 'fm', 'Cold, windy winters'),
+        L('Waterproof hiking boots', 'Footwear', 0, 2, 'fm', 'Locals hike in all seasons'),
+        L('Swimwear (geothermal pools)', 'Basics', 0, 4, 'fm', 'Pool culture is a daily thing')
       ]
     },
     'United States': {
@@ -257,9 +257,9 @@
       palette: 'Denim, black, grey, sporty basics',
       avoid: 'Little. Dress in the layers your region needs',
       local: [
-        L('Hoodie or fleece', 'Tops', 0, 2, 'fmn', 'Everyday casual layer'),
-        L('Light layer for air-conditioning', 'Outerwear', 3, 4, 'fmn', 'Interiors are cooled hard in summer'),
-        L('Comfortable sneakers', 'Footwear', 0, 4, 'fmn', 'Sneakers are worn with everything')
+        L('Hoodie or fleece', 'Tops', 0, 2, 'fm', 'Everyday casual layer'),
+        L('Light layer for air-conditioning', 'Outerwear', 3, 4, 'fm', 'Interiors are cooled hard in summer'),
+        L('Comfortable sneakers', 'Footwear', 0, 4, 'fm', 'Sneakers are worn with everything')
       ]
     },
     'Canada': {
@@ -269,9 +269,9 @@
       avoid: 'Thin coats and non-grip shoes in winter',
       drop: ['Heavy winter coat'],
       local: [
-        L('Insulated parka', 'Outerwear', 0, 0, 'fmn', 'Canadian winter standard'),
-        L('Fleece mid-layer', 'Tops', 0, 2, 'fmn', 'Layering for heated interiors'),
-        L('Winter boots with grip', 'Footwear', 0, 0, 'fmn', 'Ice and snow')
+        L('Insulated parka', 'Outerwear', 0, 0, 'fm', 'Canadian winter standard'),
+        L('Fleece mid-layer', 'Tops', 0, 2, 'fm', 'Layering for heated interiors'),
+        L('Winter boots with grip', 'Footwear', 0, 0, 'fm', 'Ice and snow')
       ]
     },
     'Mexico': {
@@ -281,8 +281,8 @@
       palette: 'Denim, embroidered detail, bright accents, earth tones',
       avoid: 'Shorts and beachwear in the city; bare shoulders in churches',
       local: [
-        L('Light jacket for cool evenings (altitude)', 'Outerwear', 2, 3, 'fmn', 'Evenings drop to jacket weather'),
-        L('Comfortable closed walking shoes', 'Footwear', 2, 3, 'fmn', 'Uneven pavements'),
+        L('Light jacket for cool evenings (altitude)', 'Outerwear', 2, 3, 'fm', 'Evenings drop to jacket weather'),
+        L('Comfortable closed walking shoes', 'Footwear', 2, 3, 'fm', 'Uneven pavements'),
         L('Embroidered blouse or top', 'Tops', 2, 3, 'f', 'Local craft, widely worn')
       ]
     },
@@ -292,10 +292,10 @@
       palette: 'Bright colours, white, tropical prints',
       avoid: 'Formal wear by day, heavy layers',
       local: [
-        L('Flip-flops', 'Footwear', 3, 4, 'fmn', 'Casual everyday shoe near the coast'),
-        L('Beach cover-up or sarong', 'Accessories', 3, 4, 'fmn', 'Used between beach and street'),
-        L('Swimwear', 'Basics', 3, 4, 'fmn', 'Beach culture is daily life', 2),
-        L('Light layer for air-conditioning', 'Outerwear', 3, 4, 'fmn', 'Buses and malls are cold')
+        L('Flip-flops', 'Footwear', 3, 4, 'fm', 'Casual everyday shoe near the coast'),
+        L('Beach cover-up or sarong', 'Accessories', 3, 4, 'fm', 'Used between beach and street'),
+        L('Swimwear', 'Basics', 3, 4, 'fm', 'Beach culture is daily life', 2),
+        L('Light layer for air-conditioning', 'Outerwear', 3, 4, 'fm', 'Buses and malls are cold')
       ]
     },
     'Australia': {
@@ -304,10 +304,10 @@
       palette: 'Neutral and sunny, with denim, white and coastal colours',
       avoid: 'Heavy or formal clothing in the heat',
       local: [
-        L('Wide-brim hat or cap', 'Accessories', 2, 4, 'fmn', 'Sun protection is standard'),
-        L('Flip-flops (thongs)', 'Footwear', 3, 4, 'fmn', 'Casual everyday shoe'),
-        L('Light layer for evenings', 'Outerwear', 2, 3, 'fmn', 'Evenings turn cool'),
-        L('Swim shirt or rash vest', 'Basics', 3, 4, 'fmn', 'UV is strong')
+        L('Wide-brim hat or cap', 'Accessories', 2, 4, 'fm', 'Sun protection is standard'),
+        L('Flip-flops (thongs)', 'Footwear', 3, 4, 'fm', 'Casual everyday shoe'),
+        L('Light layer for evenings', 'Outerwear', 2, 3, 'fm', 'Evenings turn cool'),
+        L('Swim shirt or rash vest', 'Basics', 3, 4, 'fm', 'UV is strong')
       ]
     },
     'New Zealand': {
@@ -316,9 +316,9 @@
       palette: 'Black, grey, olive, merino tones',
       avoid: 'Cotton on hikes; underdressing for sudden weather',
       local: [
-        L('Merino layers', 'Tops', 0, 2, 'fmn', 'Kiwi staple: warm, light and odour-free', 2),
-        L('Light puffer or fleece', 'Outerwear', 0, 2, 'fmn', 'Packs small, warm when it turns'),
-        L('Jandals (flip-flops)', 'Footwear', 3, 4, 'fmn', 'The Kiwi word for flip-flops')
+        L('Merino layers', 'Tops', 0, 2, 'fm', 'Kiwi staple: warm, light and odour-free', 2),
+        L('Light puffer or fleece', 'Outerwear', 0, 2, 'fm', 'Packs small, warm when it turns'),
+        L('Jandals (flip-flops)', 'Footwear', 3, 4, 'fm', 'The Kiwi word for flip-flops')
       ]
     }
   };

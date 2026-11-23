@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pack Like a Local</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <h1>🧳 Pack Like a Local</h1>
+    <p>Dress like the locals, then pack and tick it off.</p>
+  </header>
+
+  <main class="layout">
+    <section class="col">
+      <form id="trip" class="card" autocomplete="off">
+        <h2>1. Your trip</h2>
+        <label>Destination country
+          <input id="country" list="countries" placeholder="Start typing, e.g. Japan" required>
+          <datalist id="countries"></datalist>
+        </label>
+        <div class="row">
+          <label>Month of travel <select id="month"></select></label>
+          <label>Trip length (days) <input id="days" type="number" min="1" max="90" value="7"></label>
+        </div>
+        <div class="row">
+          <label>Gender
+            <select id="gender">
+              <option value="women">Women</option>
+              <option value="men">Men</option>
+              <option value="neutral">Non-binary / neutral</option>
+            </select>
+          </label>
+          <label>Age group
+          <select id="age">
+            <option value="child">Child (0–12)</option>
+            <option value="teen">Teen (13–17)</option>
+            <option value="adult" selected>Adult (18–39)</option>
+            <option value="mature">Adult (40–64)</option>
+            <option value="senior">Senior (65+)</option>
+          </select>
+          </label>
+        </div>
+        <div id="fallback" class="fallback" hidden>
+          <p>We don't have local-style data for this country yet, so suggestions are based on weather only. Tell us the typical weather:</p>
+          <div class="row">
+            <label>Typical temperature
+              <select id="fbBand"></select>
+            </label>
+            <label class="check"><input type="checkbox" id="fbRain"> Rain likely</label>
+          </div>
+        </div>
+      </form>
+
+      <section id="suggestions" class="card" aria-live="polite">
+        <h2>2. What locals wear</h2>
+        <p class="muted">Enter a destination to see suggestions.</p>
+      </section>
+    </section>
+
+    <section class="col">
+      <section class="card sticky">
+        <div class="list-head">
+          <h2>3. Packing list</h2>
+          <div class="actions">
+            <label class="check small"><input type="checkbox" id="hidePacked"> Hide packed</label>
+          </div>
+        </div>
+        <div class="progress" role="progressbar" aria-label="Packing progress" aria-valuemin="0" aria-valuemax="100" id="progress">
+          <div class="bar"><div id="barFill"></div></div>
+          <span id="progressText">0 / 0 packed</span>
+        </div>
+
+        <form id="addForm" class="add-form" autocomplete="off">
+          <input id="newName" placeholder="Add your own item (e.g. toothbrush)" required>
+          <select id="newCat"></select>
+          <input id="newQty" type="number" min="1" value="1" aria-label="Quantity">
+          <button type="submit" class="btn primary">Add</button>
+        </form>
+        <div id="chips" class="chips" aria-label="Quick add"></div>
+
+        <div id="list"></div>
+
+        <div class="footer-actions">
+          <button type="button" class="btn" id="untick">Untick all</button>
+          <button type="button" class="btn" id="print">Print</button>
+          <button type="button" class="btn danger" id="clear">Clear list</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="data/destinations.js"></script>
+  <script src="data/suggest.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

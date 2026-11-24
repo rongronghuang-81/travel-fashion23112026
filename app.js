@@ -67,7 +67,15 @@
     $('age').value = t.age; $('fbBand').value = t.fbBand; $('fbRain').checked = t.fbRain;
     $('hidePacked').checked = state.hidePacked;
   }
-  $('trip').addEventListener('input', () => { readTrip(); save(); renderSuggestions(); });
+  const syncClear = () => { $('clearCountry').hidden = !$('country').value; };
+  $('trip').addEventListener('input', () => { readTrip(); syncClear(); save(); renderSuggestions(); });
+  // Select the text on focus so typing replaces it, and the full country list shows again
+  $('country').addEventListener('focus', e => e.target.select());
+  $('clearCountry').addEventListener('click', () => {
+    $('country').value = '';
+    readTrip(); syncClear(); save(); renderSuggestions();
+    $('country').focus();
+  });
   $('trip').addEventListener('submit', e => e.preventDefault());
 
   // ---------- suggestions ----------
@@ -181,5 +189,6 @@
   $('print').addEventListener('click', () => window.print());
 
   writeTrip();
+  syncClear();
   render();
 })();

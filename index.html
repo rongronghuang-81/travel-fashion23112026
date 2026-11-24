@@ -27,7 +27,10 @@
       <form id="trip" class="card" autocomplete="off">
         <h2>1. Your trip</h2>
         <label>Destination country
-          <input id="country" list="countries" placeholder="Start typing, e.g. Japan" required>
+          <span class="field">
+            <input id="country" list="countries" placeholder="Start typing, e.g. Japan" required>
+            <button type="button" id="clearCountry" class="clear" title="Clear country" aria-label="Clear country" hidden>✕</button>
+          </span>
           <datalist id="countries"></datalist>
         </label>
         <div class="row">
